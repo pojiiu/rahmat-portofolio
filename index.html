@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - Rahmat Fauzian</title>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7674190553035599"
+     crossorigin="anonymous"></script>
+
+<style>
+/* Reset & Basic Style */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#f2f2f2;
+  color:#333;
+  line-height: 1.6;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+/* ===== HEADER ===== */
+header{
+  text-align:center;
+  padding:40px 20px;
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
+  color:white;
+  border-radius:0 0 25px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profile-img{
+  width:150px;height:150px;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid #fff;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
+  margin-bottom:15px;
+}
+.title{
+  font-weight:300;
+  font-size:1.2em;
+  margin-top:-5px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== NAV ===== */
+nav{text-align:center;margin-top:25px;}
+nav button{
+  margin:5px;padding:10px 20px;
+  background:#2575fc;color:white;
+  border:none;border-radius:25px;
+  font-size:1em;cursor:pointer;
+  transition:0.3s;
+}
+nav button:hover{background:#6a11cb;transform:scale(1.05);}
+
+/* ===== MAIN SECTION ===== */
+main{
+  background:white;margin-top:20px;
+  border-radius:15px;padding:30px;
+  box-shadow:0 0 15px rgba(0,0,0,0.1);
+  min-height: 400px; 
+}
+section{display:none;}
+section.active{display:block;animation:fadeIn 0.5s;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ===== TYPOGRAPHY ===== */
+p { margin-bottom: 15px; text-align: justify; }
+
+/* ===== SOCIAL BUTTON ===== */
+.socials{text-align:center;margin-top:25px;}
+.socials a{
+  display:inline-block;margin:10px;
+  text-decoration:none;padding:12px 20px;
+  border-radius:30px;color:white;
+  font-weight:bold;font-size:0.9em;
+  transition:0.3s;
+}
+.socials a.instagram{background:#E1306C;}
+.socials a.discord{background:#5865F2;}
+.socials a:hover{transform:scale(1.1);opacity:0.85;}
+
+/* ===== EXPERIENCE LIST ===== */
+.exp-list { padding-left: 20px; }
+.exp-list li { margin-bottom: 10px; }
+.exp-role { font-weight: bold; color: #2575fc; }
+.badge-current {
+    background-color: #25D366;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+/* ===== CONTACT INFO ===== */
+.contact-info{
+  margin:20px 0;
+  background:#f9f9f9;
+  border-left:5px solid #2575fc;
+  padding:15px 20px;
+  border-radius:10px;
+}
+.contact-info p{margin:8px 0; text-align: left;}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;margin:30px 0 10px;
+  color:#777;font-size:0.9em;
+}
+
+/* =========================== */
+/* ===== GALERI CSS ===== */
+/* =========================== */
+.gallery-menu {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gallery-menu button {
+    margin: 8px;
+    padding: 15px 25px;
+    background: #f4f4f4;
+    color: #333;
+    border: 2px solid #2575fc;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    flex: 1 1 200px;
+    max-width: 300px;
+}
+.gallery-menu button:hover {
+    background: #2575fc;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.photo-item {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.photo-item:hover {
+    transform: scale(1.03);
+}
+.back-btn {
+    background: none; border: none; color: #2575fc; cursor: pointer; font-weight: bold; margin-bottom: 15px;
+}
+.back-btn:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+  <h1>Rahmat Fauzian</h1>
+  <p class="title">Electronics Engineering</p>
+</header>
+
+<nav>
+  <button onclick="showSection('about')">About Me</button>
+  <button onclick="showSection('Experience')">Experience</button>
+  <button onclick="showSection('galeri')">Galeri</button> 
+  <button onclick="showSection('education')">Pendidikan</button>
+  <button onclick="showSection('hobi')">Hobi</button>
+  <button onclick="showSection('contact')">Contact</button>
+  <button onclick="showSection('social')">Social Media</button>
+</nav>
+
+<main>
+  <section id="galeri">
+    <h2 style="text-align: center;">Galeri Foto</h2>
+    <p style="text-align: center;">Pilih kategori album yang ingin dilihat:</p>
+    <div class="gallery-menu">
+        <button onclick="showSection('album-elektro')">⚡ ELECTRONICS</button>
+        <button onclick="showSection('album-project')">🛠️ PROJECT</button>
+        <button onclick="showSection('album-eskul')">🌲 STAMPARA</button>
+    </div>
+  </section>
+
+  <section id="album-elektro">
+    <button class="back-btn" onclick="showSection('galeri')">← Kembali ke Menu Galeri</button>
+    <h2>Album Kegiatan Elektro</h2>
+    <p>Dokumentasi kegiatan praktek, perakitan PCB, dan pemrograman PLC.</p>
+    <div class="photo-grid">
+        <img src="elektro1.jpg" alt="Kegiatan Elektro 1" class="photo-item">
+        <img src="elektro2.jpg" alt="Kegiatan Elektro 2" class="photo-item">
+        <img src="elektro3.jpg" alt="Kegiatan Elektro 3" class="photo-item">
+    </div>
+  </section>
+
+  <section id="album-eskul">
+    <button class="back-btn" onclick="showSection('galeri')">← Kembali ke Menu Galeri</button>
+    <h2>Album Eskul STAMPARA</h2>
+    <p>Dokumentasi kegiatan hiking, camping, dan latihan kepemimpinan di alam bebas.</p>
+    <div class="photo-grid">
+        <img src="eskul1.jpg" alt="Kegiatan Eskul 1" class="photo-item">
+        <img src="eskul2.jpg" alt="Kegiatan Eskul 2" class="photo-item">
+        <img src="eskul3.jpg" alt="Kegiatan Eskul 3" class="photo-item">
+    </div>
+  </section>
+
+  <section id="album-project">
+    <button class="back-btn" onclick="showSection('galeri')">← Kembali ke Menu Galeri</button>
+    <h2>Dokumentasi Project</h2>
+    <p>Hasil karya dan proyek elektronika yang telah saya selesaikan.</p>
+    <div class="photo-grid">
+        <img src="project1.jpg" alt="Project 1" class="photo-item">
+        <img src="project2.jpg" alt="Project 2" class="photo-item">
+        <img src="project3.jpg" alt="Project 3" class="photo-item">
+    </div>
+  </section>
+
+  <section id="about" class="active">
+    <h2>About Me</h2>
+    <p>
+      Saya adalah siswa jurusan Teknik Elektronika Industri di SMKN 1 Cimahi dengan minat mendalam pada pengembangan sistem elektronika dan otomasi. Melalui pendidikan vokasi, saya telah mengasah kompetensi teknis yang spesifik, meliputi pembuatan dan penyolderan PCB, pemrograman PLC, serta pemahaman mendalam terkait wiring diagram dan instalasi listrik pada trainer.
+    </p>
+    <p>
+      Di luar kegiatan akademik, saya memiliki karakter kepemimpinan dan ketahanan mental yang kuat, yang terbentuk melalui keaktifan saya di organisasi Pecinta Alam STAMPARA. Pengalaman menjabat sebagai Komandan Latihan tidak hanya melatih fisik dan mental saya untuk bertahan di alam bebas, tetapi juga mempertajam kemampuan manajerial, tanggung jawab, dan kerja sama tim dalam situasi yang menantang.
+    </p>
+  </section>
+
+  <section id="Experience">
+    <h2>Pengalaman & Keahlian</h2>
+
+    <h3>💼 Pengalaman Kerja / Magang</h3>
+    <p>
+      <span class="exp-role">Praktek Kerja Lapang (PKL)</span> - PT Citia Engineering Indonesia
+      <span class="badge-current">Sedang Berlangsung</span>
+    </p>
+    <ul class="exp-list">
+        <li>Mempelajari sistem otomasi industri dan kontrol elektronika.</li>
+        <li>Terlibat dalam pemeliharaan dan perakitan panel listrik.</li>
+        <li>Mempraktikkan budaya kerja industri (5S/5R) dan safety (K3).</li>
+    </ul>
+    <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
+
+    <h3>🔧 Keahlian Teknis (Hard Skills)</h3>
+    <ul class="exp-list">
+        <li><strong>PCB Assembly:</strong> Pembuatan layout dan penyolderan komponen elektronika.</li>
+        <li><strong>Automation:</strong> Pemrograman PLC (Programmable Logic Controller).</li>
+        <li><strong>Electrical:</strong> Pemahaman wiring diagram dan instalasi listrik pada trainer industri.</li>
+    </ul>
+    <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
+    
+    <h3>🌲 Pengalaman Organisasi</h3>
+    <p><span class="exp-role">Komandan Latihan</span> - Pecinta Alam STAMPARA</p>
+    <ul class="exp-list">
+        <li>Bertanggung jawab atas pelatihan fisik dan mental anggota.</li>
+        <li>Melatih kemampuan survival dan navigasi darat.</li>
+        <li>Mengasah kepemimpinan (leadership) dan manajemen tim dalam kondisi lapangan.</li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Riwayat Pendidikan</h2>
+    <ul>
+      <li>MI SADARMANAH – Lulus 2017</li>
+      <li>SMPN 8 CIMAHI – Lulus 2020</li>
+      <li>SMKN 1 CIMAHI – Teknik Elektronika Industri (2021–sekarang)</li>
+    </ul>
+  </section>
+
+  <section id="hobi">
+    <h2>My Hobi</h2>
+    <p>Saya sangat suka <strong>hiking</strong> dan <strong>camp</strong>. 
+    Kedua hobi ini memberi saya pengalaman seru, menantang, sekaligus menenangkan karena bisa lebih dekat dengan alam.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p><strong>✉️ Email:</strong> rahmatfauzian09@gmail.com</p>
+      <p><strong>🏠 Address:</strong> Jl. Sadarmanah Gg Keramat No 52, Leuwigajah Cimahi Selatan, Jawa Barat</p>
+    </div>
+    <form>
+      <label>Email Anda:</label><br>
+      <input type="email" required style="width:100%;padding:8px;margin:8px 0;"><br>
+      <label>Pesan:</label><br>
+      <textarea required style="width:100%;height:100px;padding:8px;margin:8px 0;"></textarea><br>
+      <button type="submit" style="background:#2575fc;color:white;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;">Send</button>
+    </form>
+  </section>
+
+  <section id="social">
+    <h2>Follow Me</h2>
+    <div class="socials">
+      <a href="https://www.instagram.com/fauzii.xd?igsh=bm9reXAxMTZha2po" target="_blank" class="instagram">Instagram</a>
+      <a href="https://discord.gg/g8mwFvZM" target="_blank" class="discord">Discord</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Rahmat Fauzian. All rights reserved.
+</footer>
+
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('main section').forEach(sec=>{
+    sec.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+  document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

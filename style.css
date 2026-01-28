@@ -1,0 +1,146 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, form, label, input, textarea, button { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+} 
+ 
+body { 
+  font-family: Arial, sans-serif; 
+  line-height: 1.6;
+  background-color: #f4f4f4; 
+} 
+ 
+.container { 
+  width: 80%; 
+  margin: auto; 
+  overflow: hidden; 
+} 
+ 
+/* ===== HEADER (DIPERBARUI) ===== */
+header {
+  /* Menggunakan Flexbox agar SEMUA isi header otomatis ke tengah */
+  display: flex;
+  flex-direction: column;    /* Menyusun elemen ke bawah (Foto -> Nama -> Title) */
+  align-items: center;       /* Memaksa elemen berada tepat di tengah (horizontal) */
+  justify-content: center;
+  
+  /* Style Warna & Bentuk (Sesuai gambar kamu) */
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 0 0 25px 25px;
+  text-align: center;        /* Jaga-jaga agar teks di dalam elemen tetap tengah */
+}
+
+/* Foto Profil */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  margin-bottom: 15px;       /* Jarak antara foto ke Nama */
+}
+
+/* Nama (h1) */
+header h1 {
+  margin: 5px 0;             /* Jarak sedikit ke atas dan bawah */
+  font-size: 1.8em;          /* Ukuran font nama */
+}
+
+/* Tulisan Electronics Engineering */
+.title {
+  font-size: 1.1em;
+  margin-top: 5px;           /* Jarak dari nama ke title */
+  font-weight: 300;          /* Agar tulisan agak tipis & elegan */
+  opacity: 0.9;              /* Sedikit transparan agar tidak setegas nama */
+  
+  /* KUNCI PERBAIKAN: */
+  width: 100%;               /* Pastikan lebar penuh */
+  text-align: center;        /* Paksa teks ke tengah */
+}
+/* ===== BAGIAN KONTEN UTAMA ===== */
+main { 
+  padding: 20px; 
+  background: #fff; 
+  margin-top: 20px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px;     /* Sedikit lengkungan di sudut kotak utama */
+} 
+ 
+.bio, .contact, .social-media, .contact-form { 
+  margin-bottom: 20px; 
+} 
+ 
+h2 { 
+  color: #333; 
+  margin-bottom: 10px; 
+  border-bottom: 2px solid #333; /* Garis bawah pada judul section agar tegas */
+  padding-bottom: 5px;
+  display: inline-block;
+} 
+ 
+.contact ul { 
+  list-style: none; 
+} 
+ 
+.social-media a { 
+  display: inline-block; 
+  margin-right: 15px; 
+  color: #333; 
+  text-decoration: none; 
+  font-weight: bold; 
+  font-size: 1.1em;
+} 
+ 
+.social-media a:hover {
+  text-decoration: underline; 
+  color: #007bff; /* Warna biru saat kursor diarahkan (hover) */
+} 
+ 
+/* ===== FORM STYLE ===== */
+.contact-form label { 
+  display: block; 
+  margin-top: 10px; 
+  margin-bottom: 5px; 
+  font-weight: bold;
+} 
+ 
+.contact-form input, .contact-form textarea { 
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+} 
+ 
+.contact-form button { 
+  padding: 10px 20px; 
+  background-color: #333; 
+  color: #fff; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  transition: background 0.3s; /* Efek transisi halus */
+} 
+ 
+.contact-form button:hover { 
+  background-color: #555; 
+}
+
+footer { 
+  text-align: center; 
+  padding: 20px; 
+  background: #333; 
+  color: #fff; 
+  margin-top: 20px; 
+}
+
+/* ===== RESPONSIVE (TAMBAHAN AGAR BAGUS DI HP) ===== */
+@media (max-width: 600px) {
+  .container {
+    width: 95%; /* Lebar container jadi lebih penuh di layar HP */
+  }
+}
