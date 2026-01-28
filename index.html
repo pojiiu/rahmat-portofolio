@@ -9,88 +9,32 @@
      crossorigin="anonymous"></script>
 
 <style>
-/* ========================================= */
-/* 1. DEFINISI WARNA (CSS VARIABLES)         */
-/* ========================================= */
-:root {
-    /* Mode Original (Light) */
-    --bg-color: #f2f2f2;
-    --text-color: #333333;
-    --card-bg: #ffffff;
-    --shadow-color: rgba(0,0,0,0.1);
-    --primary-color: #2575fc;
-    --accent-color: #6a11cb;
-    --border-color: #eee;
-    --input-bg: #ffffff;
-}
-
-/* Mode Gelap (Dark) */
-body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --card-bg: #1e1e1e;
-    --shadow-color: rgba(0,0,0,0.5);
-    --primary-color: #4facfe;
-    --accent-color: #00f2fe;
-    --border-color: #333;
-    --input-bg: #2c2c2c;
-}
-
 /* Reset & Basic Style */
 *{box-sizing:border-box;}
 body{
   margin:0;
   font-family:'Segoe UI',Arial,sans-serif;
-  background: var(--bg-color);
-  color: var(--text-color);
+  background:#f2f2f2;
+  color:#333;
   line-height: 1.6;
-  transition: background 0.3s, color 0.3s;
 }
 .container{
   max-width:900px;
   margin:auto;
   padding:20px;
-  position: relative; /* Agar layout tetap stabil */
 }
-
 /* ===== HEADER ===== */
 header{
   text-align:center;
   padding:40px 20px;
-  background:linear-gradient(135deg, #6a11cb, #2575fc);
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
   color:white;
   border-radius:0 0 25px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  /* PENTING: Agar tombol pojok kanan atas mengacu ke kotak header ini */
-  position: relative; 
 }
-
-/* TOMBOL DARK MODE (Updated) */
-.btn-mode {
-    position: absolute; /* Posisi Mengambang */
-    top: 20px;          /* Jarak dari Atas */
-    right: 20px;        /* Jarak dari Kanan */
-    
-    background: rgba(0, 0, 0, 0.3); /* Transparan gelap agar elegan */
-    color: white;
-    border: 1px solid rgba(255,255,255,0.5);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    cursor: pointer;
-    transition: 0.3s;
-    backdrop-filter: blur(5px); /* Efek blur di belakang tombol */
-}
-.btn-mode:hover {
-    background: white;
-    color: #333;
-    transform: scale(1.05);
-}
-
 .profile-img{
   width:150px;height:150px;
   object-fit:cover;
@@ -111,22 +55,19 @@ header{
 nav{text-align:center;margin-top:25px;}
 nav button{
   margin:5px;padding:10px 20px;
-  background: var(--primary-color);
-  color:white;
+  background:#2575fc;color:white;
   border:none;border-radius:25px;
   font-size:1em;cursor:pointer;
   transition:0.3s;
 }
-nav button:hover{background: var(--accent-color); transform:scale(1.05);}
+nav button:hover{background:#6a11cb;transform:scale(1.05);}
 
 /* ===== MAIN SECTION ===== */
 main{
-  background: var(--card-bg);
-  margin-top:20px;
+  background:white;margin-top:20px;
   border-radius:15px;padding:30px;
-  box-shadow:0 0 15px var(--shadow-color);
+  box-shadow:0 0 15px rgba(0,0,0,0.1);
   min-height: 400px; 
-  transition: background 0.3s;
 }
 section{display:none;}
 section.active{display:block;animation:fadeIn 0.5s;}
@@ -134,7 +75,6 @@ section.active{display:block;animation:fadeIn 0.5s;}
 
 /* ===== TYPOGRAPHY ===== */
 p { margin-bottom: 15px; text-align: justify; }
-h2, h3 { color: var(--text-color); }
 
 /* ===== SOCIAL BUTTON ===== */
 .socials{text-align:center;margin-top:25px;}
@@ -147,13 +87,15 @@ h2, h3 { color: var(--text-color); }
 }
 .socials a.instagram{background:#E1306C;}
 .socials a.discord{background:#5865F2;}
+/* TAMBAHAN WARNA UNTUK LINKEDIN */
 .socials a.linkedin{background:#0077b5;} 
+
 .socials a:hover{transform:scale(1.1);opacity:0.85;}
 
 /* ===== EXPERIENCE LIST ===== */
 .exp-list { padding-left: 20px; }
 .exp-list li { margin-bottom: 10px; }
-.exp-role { font-weight: bold; color: var(--primary-color); }
+.exp-role { font-weight: bold; color: #2575fc; }
 .badge-current {
     background-color: #25D366;
     color: white;
@@ -167,34 +109,22 @@ h2, h3 { color: var(--text-color); }
 /* ===== CONTACT INFO ===== */
 .contact-info{
   margin:20px 0;
-  background: var(--bg-color);
-  border-left:5px solid var(--primary-color);
+  background:#f9f9f9;
+  border-left:5px solid #2575fc;
   padding:15px 20px;
   border-radius:10px;
 }
 .contact-info p{margin:8px 0; text-align: left;}
 
-/* Form Styles */
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--border-color);
-    background: var(--input-bg);
-    color: var(--text-color);
-    border-radius: 4px;
-}
-label { font-weight: bold; }
-
 /* ===== FOOTER ===== */
 footer{
   text-align:center;margin:30px 0 10px;
-  color: var(--text-color);
-  font-size:0.9em;
-  opacity: 0.7;
+  color:#777;font-size:0.9em;
 }
 
+/* =========================== */
 /* ===== GALERI CSS ===== */
+/* =========================== */
 .gallery-menu {
     text-align: center;
     margin-bottom: 30px;
@@ -205,9 +135,9 @@ footer{
 .gallery-menu button {
     margin: 8px;
     padding: 15px 25px;
-    background: var(--bg-color);
-    color: var(--text-color);
-    border: 2px solid var(--primary-color);
+    background: #f4f4f4;
+    color: #333;
+    border: 2px solid #2575fc;
     border-radius: 10px;
     font-size: 1em;
     cursor: pointer;
@@ -217,7 +147,7 @@ footer{
     max-width: 300px;
 }
 .gallery-menu button:hover {
-    background: var(--primary-color);
+    background: #2575fc;
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
@@ -234,7 +164,7 @@ footer{
     height: 200px; 
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 3px 8px var(--shadow-color);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     transition: transform 0.3s;
     cursor: pointer;
 }
@@ -242,9 +172,7 @@ footer{
     transform: scale(1.03);
 }
 .back-btn {
-    background: none; border: none; 
-    color: var(--primary-color); 
-    cursor: pointer; font-weight: bold; margin-bottom: 15px;
+    background: none; border: none; color: #2575fc; cursor: pointer; font-weight: bold; margin-bottom: 15px;
 }
 .back-btn:hover { text-decoration: underline; }
 
@@ -254,8 +182,6 @@ footer{
 <div class="container">
 
 <header>
-  <button onclick="toggleDarkMode()" class="btn-mode" id="modeBtn">🌙 Dark</button>
-
   <img src="profile.jpg" alt="Profile Picture" class="profile-img">
   <h1>Rahmat Fauzian</h1>
   <p class="title">Electronics Engineering</p>
@@ -338,7 +264,7 @@ footer{
         <li>Terlibat dalam pemeliharaan dan perakitan panel listrik.</li>
         <li>Mempraktikkan budaya kerja industri (5S/5R) dan safety (K3).</li>
     </ul>
-    <hr style="border:0; border-top:1px solid var(--border-color); margin:20px 0;">
+    <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
 
     <h3>🔧 Keahlian Teknis (Hard Skills)</h3>
     <ul class="exp-list">
@@ -346,7 +272,7 @@ footer{
         <li><strong>Automation:</strong> Pemrograman PLC (Programmable Logic Controller).</li>
         <li><strong>Electrical:</strong> Pemahaman wiring diagram dan instalasi listrik pada trainer industri.</li>
     </ul>
-    <hr style="border:0; border-top:1px solid var(--border-color); margin:20px 0;">
+    <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
     
     <h3>🌲 Pengalaman Organisasi</h3>
     <p><span class="exp-role">Komandan Latihan</span> - Pecinta Alam STAMPARA</p>
@@ -378,12 +304,12 @@ footer{
       <p><strong>✉️ Email:</strong> rahmatfauzian09@gmail.com</p>
       <p><strong>🏠 Address:</strong> Jl. Sadarmanah Gg Keramat No 52, Leuwigajah Cimahi Selatan, Jawa Barat</p>
     </div>
-    <form class="contact-form">
+    <form>
       <label>Email Anda:</label><br>
-      <input type="email" required><br>
+      <input type="email" required style="width:100%;padding:8px;margin:8px 0;"><br>
       <label>Pesan:</label><br>
-      <textarea required style="height:100px;"></textarea><br>
-      <button type="submit" style="background:var(--primary-color);color:white;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;">Send</button>
+      <textarea required style="width:100%;height:100px;padding:8px;margin:8px 0;"></textarea><br>
+      <button type="submit" style="background:#2575fc;color:white;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;">Send</button>
     </form>
   </section>
 
@@ -410,17 +336,6 @@ function showSection(id){
   });
   document.getElementById(id).classList.add('active');
   document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
-}
-
-function toggleDarkMode() {
-    var body = document.body;
-    var btn = document.getElementById("modeBtn");
-    body.classList.toggle("dark-mode");
-    if (body.classList.contains("dark-mode")) {
-        btn.innerText = "☀️ Light";
-    } else {
-        btn.innerText = "🌙 Dark";
-    }
 }
 </script>
 </body>
