@@ -1,39 +1,46 @@
-/* Reset some default styles */
+/* ========================================= */
+/* 1. RESET & BASIC STYLE */
+/* ========================================= */
 body, h1, h2, p, ul, form, label, input, textarea, button { 
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
 } 
- 
+
 body { 
-  font-family: Arial, sans-serif; 
+  font-family: 'Segoe UI', Arial, sans-serif; /* Font lebih modern */
   line-height: 1.6;
-  background-color: #f4f4f4; 
+  background-color: #f2f2f2; 
+  color: #333;
+  overflow-x: hidden; /* Mencegah scroll samping saat animasi berjalan */
 } 
- 
+
 .container { 
-  width: 80%; 
+  max-width: 900px; /* Diperlebar sedikit agar galeri muat */
   margin: auto; 
+  padding: 20px;
   overflow: hidden; 
 } 
- 
-/* ===== HEADER (DIPERBARUI) ===== */
+
+/* ========================================= */
+/* 2. HEADER (DIPERBARUI DENGAN ANIMASI) */
+/* ========================================= */
 header {
-  /* Menggunakan Flexbox agar SEMUA isi header otomatis ke tengah */
   display: flex;
-  flex-direction: column;    /* Menyusun elemen ke bawah (Foto -> Nama -> Title) */
-  align-items: center;       /* Memaksa elemen berada tepat di tengah (horizontal) */
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  
-  /* Style Warna & Bentuk (Sesuai gambar kamu) */
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
   padding: 40px 20px;
   border-radius: 0 0 25px 25px;
-  text-align: center;        /* Jaga-jaga agar teks di dalam elemen tetap tengah */
+  text-align: center;
+  
+  /* Animasi Header muncul */
+  animation: slideDown 1s ease-out;
 }
 
-/* Foto Profil */
+/* Animasi Foto Profil */
 .profile-img {
   width: 150px;
   height: 150px;
@@ -41,106 +48,248 @@ header {
   border-radius: 50%;
   border: 4px solid #fff;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  margin-bottom: 15px;       /* Jarak antara foto ke Nama */
+  margin-bottom: 15px;
+  
+  /* Efek Interaktif */
+  transition: transform 0.5s ease;
 }
 
-/* Nama (h1) */
+.profile-img:hover {
+  transform: rotate(5deg) scale(1.1); /* Miring dan membesar saat disentuh */
+}
+
 header h1 {
-  margin: 5px 0;             /* Jarak sedikit ke atas dan bawah */
-  font-size: 1.8em;          /* Ukuran font nama */
+  margin: 5px 0;
+  font-size: 1.8em;
 }
 
-/* Tulisan Electronics Engineering */
 .title {
   font-size: 1.1em;
-  margin-top: 5px;           /* Jarak dari nama ke title */
-  font-weight: 300;          /* Agar tulisan agak tipis & elegan */
-  opacity: 0.9;              /* Sedikit transparan agar tidak setegas nama */
-  
-  /* KUNCI PERBAIKAN: */
-  width: 100%;               /* Pastikan lebar penuh */
-  text-align: center;        /* Paksa teks ke tengah */
+  margin-top: 5px;
+  font-weight: 300;
+  opacity: 0.9;
+  width: 100%;
+  text-align: center;
 }
-/* ===== BAGIAN KONTEN UTAMA ===== */
+
+/* ========================================= */
+/* 3. NAVIGASI (MENU TOMBOL) */
+/* ========================================= */
+nav {
+  text-align: center;
+  margin-top: 25px;
+}
+
+nav button {
+  margin: 5px;
+  padding: 10px 20px;
+  background: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  
+  /* Animasi Tombol */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+nav button:hover {
+  background: #6a11cb;
+  transform: scale(1.1); /* Membesar meletup */
+  box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+}
+
+/* ========================================= */
+/* 4. MAIN CONTENT (KARTU UTAMA) */
+/* ========================================= */
 main { 
-  padding: 20px; 
+  padding: 30px; 
   background: #fff; 
   margin-top: 20px; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-  border-radius: 8px;     /* Sedikit lengkungan di sudut kotak utama */
+  border-radius: 15px;
+  min-height: 400px;
+  
+  /* Efek Kartu Mengangkat */
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 } 
- 
-.bio, .contact, .social-media, .contact-form { 
-  margin-bottom: 20px; 
-} 
- 
+
+main:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Bayangan menebal */
+  transform: translateY(-5px); /* Kartu naik sedikit */
+}
+
+/* Logic Tab Halaman (Penting untuk ganti menu) */
+section { display: none; }
+section.active { 
+  display: block; 
+  animation: fadeIn 0.5s; 
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Typography */
 h2 { 
   color: #333; 
-  margin-bottom: 10px; 
-  border-bottom: 2px solid #333; /* Garis bawah pada judul section agar tegas */
+  margin-bottom: 20px; 
+  border-bottom: 2px solid #333;
   padding-bottom: 5px;
   display: inline-block;
 } 
- 
-.contact ul { 
-  list-style: none; 
-} 
- 
-.social-media a { 
-  display: inline-block; 
-  margin-right: 15px; 
-  color: #333; 
-  text-decoration: none; 
-  font-weight: bold; 
-  font-size: 1.1em;
-} 
- 
-.social-media a:hover {
-  text-decoration: underline; 
-  color: #007bff; /* Warna biru saat kursor diarahkan (hover) */
-} 
- 
-/* ===== FORM STYLE ===== */
-.contact-form label { 
-  display: block; 
-  margin-top: 10px; 
-  margin-bottom: 5px; 
+
+p { margin-bottom: 15px; text-align: justify; }
+
+/* ========================================= */
+/* 5. GALERI FOTO (GRID LAYOUT) */
+/* ========================================= */
+.gallery-menu {
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-menu button {
+  margin: 8px;
+  padding: 15px 25px;
+  background: #f4f4f4;
+  color: #333;
+  border: 2px solid #2575fc;
+  border-radius: 10px;
   font-weight: bold;
-} 
- 
-.contact-form input, .contact-form textarea { 
-  width: 100%; 
-  padding: 10px; 
-  margin-bottom: 10px; 
-  border: 1px solid #ccc; 
-  border-radius: 4px; 
-} 
- 
-.contact-form button { 
-  padding: 10px 20px; 
-  background-color: #333; 
-  color: #fff; 
-  border: none; 
-  border-radius: 4px; 
-  cursor: pointer; 
-  transition: background 0.3s; /* Efek transisi halus */
-} 
- 
-.contact-form button:hover { 
-  background-color: #555; 
+  flex: 1 1 200px; /* Responsif */
+  max-width: 300px;
+  transition: 0.3s;
 }
 
+.gallery-menu button:hover {
+  background: #2575fc;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.photo-item {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.photo-item:hover {
+  transform: scale(1.05); /* Zoom in gambar */
+}
+
+.back-btn {
+  background: none; border: none; color: #2575fc; 
+  cursor: pointer; font-weight: bold; margin-bottom: 15px;
+}
+.back-btn:hover { text-decoration: underline; }
+
+/* ========================================= */
+/* 6. PENGALAMAN & ORGANISASI (LIST STYLE) */
+/* ========================================= */
+.exp-list { padding-left: 20px; }
+.exp-list li { margin-bottom: 10px; }
+
+.exp-role { font-weight: bold; color: #2575fc; }
+
+.badge-current {
+  background-color: #25D366;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+/* ========================================= */
+/* 7. HOBI (INTERACTIVE LIST) */
+/* ========================================= */
+#hobi li {
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+#hobi li:hover {
+  background: #f0f7ff;
+  transform: translateX(10px); /* Geser ke kanan saat disentuh */
+  color: #2575fc;
+  border-left: 4px solid #2575fc;
+}
+
+/* ========================================= */
+/* 8. CONTACT & FORM */
+/* ========================================= */
+.contact-info {
+  margin: 20px 0;
+  background: #f9f9f9;
+  border-left: 5px solid #2575fc;
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.contact-info:hover { transform: translateX(5px); }
+
+form label { display: block; margin-top: 10px; font-weight: bold; }
+form input, form textarea { 
+  width: 100%; padding: 10px; margin-bottom: 10px; 
+  border: 1px solid #ccc; border-radius: 4px; 
+} 
+form button { 
+  padding: 10px 20px; background-color: #2575fc; color: #fff; 
+  border: none; border-radius: 25px; cursor: pointer; transition: 0.3s; 
+} 
+form button:hover { background-color: #1a5bbf; transform: scale(1.05); }
+
+/* ========================================= */
+/* 9. SOCIAL MEDIA */
+/* ========================================= */
+.socials { text-align: center; margin-top: 25px; }
+
+.socials a { 
+  display: inline-block; margin: 10px; 
+  text-decoration: none; padding: 12px 20px; 
+  border-radius: 30px; color: white; 
+  font-weight: bold; font-size: 0.9em; 
+  transition: 0.3s; 
+}
+
+/* Warna khusus masing-masing sosmed */
+.socials a.instagram { background: #E1306C; }
+.socials a.discord { background: #5865F2; }
+.socials a.linkedin { background: #0077b5; }
+
+.socials a:hover {
+  transform: scale(1.1) rotate(3deg); /* Efek goyang dikit */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ========================================= */
+/* 10. FOOTER & RESPONSIVE */
+/* ========================================= */
 footer { 
-  text-align: center; 
-  padding: 20px; 
-  background: #333; 
-  color: #fff; 
-  margin-top: 20px; 
+  text-align: center; padding: 20px; 
+  color: #777; font-size: 0.9em; margin-top: 30px; 
 }
 
-/* ===== RESPONSIVE (TAMBAHAN AGAR BAGUS DI HP) ===== */
 @media (max-width: 600px) {
-  .container {
-    width: 95%; /* Lebar container jadi lebih penuh di layar HP */
-  }
+  .container { width: 95%; }
+  .profile-img { width: 120px; height: 120px; }
+  header h1 { font-size: 1.5em; }
 }
